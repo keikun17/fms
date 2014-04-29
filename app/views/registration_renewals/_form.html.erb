@@ -1,0 +1,33 @@
+<%= form_for(@registration_renewal) do |f| %>
+  <% if @registration_renewal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@registration_renewal.errors.count, "error") %> prohibited this registration_renewal from being saved:</h2>
+
+      <ul>
+      <% @registration_renewal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :renewal_date %><br />
+    <%= f.date_select :renewal_date, :start_year => 1970, :order => [:month, :day, :year] %>
+  </div>
+  <div class="field">
+    <%= f.label :registration_office %><br />
+    <%= f.text_field :registration_office %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_paid %><br />
+    <%= f.text_field :amount_paid %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicle %><br />
+    <%= f.text_field :vehicle %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

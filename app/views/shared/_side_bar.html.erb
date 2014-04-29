@@ -1,0 +1,11 @@
+<% if company_user_signed_in? and !@vehicle.blank? and !@vehicle.new_record? %>
+  <div id="sidebar">
+    <%= link_to "Vehicle Details", fleet_vehicle_path(:fleet_id => @vehicle.fleet, :id => @vehicle) %>
+    <%= link_to "PMS", fleet_vehicle_preventive_maintenances_path(:fleet_id => @vehicle.fleet, :vehicle_id => @vehicle) %>
+    <%= link_to "Repairs", fleet_vehicle_vehicle_repairs_path(:fleet_id => @vehicle.fleet, :vehicle_id => @vehicle) %>
+    <%= link_to "Accidents and Insurance", fleet_vehicle_accidents_path(:fleet_id => @vehicle.fleet, :vehicle_id => @vehicle) %>
+    <%= link_to "Tires", fleet_vehicle_tires_path(:fleet_id => @vehicle.fleet, :vehicle_id => @vehicle)  %>
+    <%= link_to "Batteries", fleet_vehicle_batteries_path(:fleet_id => @vehicle.fleet, :vehicle_id => @vehicle) %>
+    <%= link_to "Operating Expenses", fleet_vehicle_operating_expenses_path(:fleet_id => @vehicle.fleet, :vehicle_id => @vehicle.id) %>
+  </div>
+<% end %>

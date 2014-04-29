@@ -1,0 +1,6 @@
+<div id="quick_jump">
+  <% if company_user_signed_in? %>
+    Jump to Fleet : <%#= select_tag :fleet_id, options_for_select(Fleet.all.collect{|x| [x.name, x.id]}) %> 
+    <%= select_tag ":fleet_id", options_for_select(Fleet.all.collect{|x| [x.name, x.id]}, :selected => @fleet.nil? ? nil : @fleet.id),:onchange =>"document.location.href='/fleets/'+this.value+'/vehicles'" %>
+  <% end%>
+</div>

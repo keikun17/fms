@@ -1,0 +1,66 @@
+  <%= form_for([@fleet, @vehicle, @vehicle_repair]) do |f|%>
+  <% if @vehicle_repair.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle_repair.errors.count, "error") %> prohibited this vehicle_repair from being saved:</h2>
+
+      <ul>
+      <% @vehicle_repair.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset style="border:1px solid black">
+    <legend style="margin-left:10px">Repair Summary</legend>
+  <table class="form">
+
+    <tr>    
+      <td><%= f.label :reference_number, 'Reference Number' %></td>
+      <td><%= f.text_field :reference_number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :service_center_id, "Service Center" %></td>
+      <td><%= f.select :service_center_id ,options_for_select(ServiceCenter.all.collect{|x| [x.name,x.id]})%></td>
+    </tr>
+    <tr>    
+      <td><%= f.label :invoice_date, 'Invoice Date' %></td>
+      <td><%= f.date_select :invoice_date, :start_year => 1970, :order => [:month, :day, :year] %></td>
+    </tr>
+    <tr>    
+      <td><%= f.label :odometer_reading, 'Mileage Reading' %></td>
+      <td><%= f.text_field :odometer_reading %> Km</td>
+    </tr>
+    <tr>    
+      <td><%= f.label :remarks, 'Remarks' %></td>
+      <td><%= f.text_area :remarks, :rows => 3 %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>      
+    </tr>  
+  </table>
+  </fieldset>
+  <br>
+  <table width="100%" class="index" border="1">
+    <tr class="yellow">
+      <th>Qty</th>
+      <th>Items/Particulars</th>
+      <th>Unit Price</th>
+      <th>Amount</th>
+      <th>Type of Repair</th>
+      <th>Warranty</th>
+    </tr>
+    <%= f.fields_for :vehicle_repair_details do |builder| %>
+      <%= render :partial => "vehicle_repair_detail_fields", :locals => {:f => builder}%>
+    <% end %>
+      <tr>
+        <td colspan=6><%= link_to_add_table_fields "Add Vehicle Repair Detail", f, :vehicle_repair_details %></td>
+      </tr>
+  </table>
+  <br>
+  
+  <%= submit_tag "Create Vehicle Repair entry" %>
+<% end %>
+
+

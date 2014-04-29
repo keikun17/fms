@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @service_center.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @service_center.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_center_path(@service_center) %> |
+<%= link_to 'Back', service_centers_path %>

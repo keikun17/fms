@@ -1,0 +1,59 @@
+<%= form_for([@fleet, @vehicle, @tire]) do |f|%>
+<table class="form">
+
+  <div class="field">
+    <%= f.label :replacement_date %><br />
+    <%= f.date_select :replacement_date, :order => [:month, :day, :year] %>
+  </div>
+  <div class="field">
+    <%= f.label :odometer_reading %><br />
+    <%= f.text_field :odometer_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :supplier %><br />
+    <%= f.text_field :supplier %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_price %><br />
+    <%= f.text_field :unit_price %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :parts_expense %><br />
+    <%= f.text_field :parts_expense %>
+  </div>
+  <div class="field">
+    <%= f.label :labor_expense %><br />
+    <%= f.text_field :labor_expense %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_area :remarks %>
+  </div>
+
+
+  <tr>
+    <td colspan=2><%= submit_tag "Add Tire Log" %></td>
+  </tr>
+</table>
+<% end %>
+

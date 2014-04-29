@@ -1,0 +1,256 @@
+<div class="container">
+  <div class="container_header">
+    <h3><%= @vehicle.complete_model %> (<%= @vehicle.plate_number %>)</h3>
+  </div>
+
+  <div class="container_body">
+    <div id="buttons_section">
+      <%= link_to 'Edit Vehicle Details', edit_fleet_vehicle_path, :class => "button" %>
+      <%= link_to 'Back to Vehicle Index', fleet_vehicles_path, :class => "button" %>
+    </div>
+    <div style="clear:both">
+      &nbsp
+    </div>
+    <% unless @vehicle.reminders.expired.empty? and @vehicle.reminders.upcoming.empty? %>
+      <fieldset id="reminders_container">
+        <legend>REMINDERS</legend>
+        <p>
+          <ul>
+            <%  @vehicle.reminders.expired.each do |reminder| %>
+              <li><%= reminder.reminder_name%> expired on <%= reminder.reminder_date.to_date.to_s(:long)%></li>
+            <% end %>
+
+            <% @vehicle.reminders.upcoming.each do |reminder| %>
+              <li><%= reminder.reminder_name %> expiring on <%= reminder.reminder_date.to_date.to_s(:long)%></li>
+            <% end %>
+          </ul>
+        </p> 
+      </fieldset>
+    <% end %>
+    <table class="index">
+      <tr class="yellow">
+        <th colspan=5>Vehicle Details</th>
+      </tr>
+      <tr>
+        <td rowspan=6 style="width:80px"><%= image_tag "/images/car.jpeg", :height=>'90px' %></td>
+        <td><span class="strong"><%= @vehicle.complete_model%></span></td>
+        <td><span class="strong">Assignee</span>: 
+          <% if @vehicle.assignee.nil? %>
+            <%= link_to "Assign Vehicle", new_fleet_vehicle_assignee_path(@fleet, @vehicle)%>
+          <% else %>
+            <%= link_to "#{@vehicle.assignee.firstname} #{@vehicle.assignee.surname}", edit_fleet_vehicle_assignee_path(@fleet, @vehicle, @vehicle.assignee) %>
+          <%end%>
+          </td>
+        <td><span class="strong">Designation</span>: <%= @vehicle.assignee_designation%></td>
+      </tr>
+      <tr>
+        <td><%= @vehicle.plate_number%></td>
+        <td><span class="strong">Division</span>: <%= @vehicle.division %></td>
+        <td><span class="strong">Area Assigned To</span>: <%= @vehicle.area %></td>        
+      </tr>
+      <tr>
+        <td colspan=5>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan=5><span class="strong">Estimated Mileage as of Today (by the minute)</span>: <%= @vehicle.estimated_mileage_today %></td>
+      </tr>
+      <tr>
+        <td colspan=5><span class="strong">Vehicle status is '<%= @vehicle.state %>'</td>
+      </tr>
+
+    </table>
+    <br>
+    <table class="index two_column_left">
+        <tr class="yellow">
+          <th colspan=2>Vehicle Statistics <%= vehicle_state(@vehicle) %></td>
+        </tr>
+
+        <tr>
+          <td><%= label :make, 'Make' %></td>
+          <td><%= @vehicle.make %></td>
+        </tr>    
+        <tr>
+          <td><%= label :model, 'Model'%></td>
+          <td><%= @vehicle.model %></td>
+        </tr>
+        <tr>
+          <td><%= label :plate_number, 'Plate Number'%></td>
+          <td><%= @vehicle.plate_number%></td>
+        </tr>
+        <tr>
+          <td><%= label :conduction_sticker_number, 'Conduction Sticker Number'%></td>
+          <td><%= @vehicle.conduction_sticker_number %></td>
+        </tr>
+        <tr>
+          <td><%= label :color, 'Color' %></td>
+          <td><%= @vehicle.color %></td>
+        </tr>
+        <tr>
+          <td><%= label :transmission_type, 'Transmission Type' %></td>
+          <td><%= @vehicle.transmission_type%></td>
+        </tr>
+        <tr>
+          <td><%= label :chassis_number, 'Chassis Number' %></td>
+          <td><%= @vehicle.chassis_number %></td>
+        </tr>
+        <tr>
+          <td><%= label :fuel_type, 'Fuel Type' %></td>
+          <td><%= @vehicle.fuel_type_name %></td>
+        </tr>        
+        <tr>
+          <td><%= label :engine_number, 'Engine No.' %></td>
+          <td><%= @vehicle.engine_number %></td>
+        </tr>        
+      </table>
+      
+      <table class="index two_column_right">
+        <tr class="yellow">
+          <th colspan='2'>
+            Purchase Information
+          </th>            
+        </tr>
+        <tr>
+          <td>Purchase Date</td>
+          <td><%= @vehicle.purchase_date.to_s(:long) %></td>      
+        </tr>
+        <tr>
+          <td>Purchase Amount</td>
+          <td><%= round_off(@vehicle.purchase_amount,2) %></td>      
+        </tr>        
+        <tr>
+          <td>Car Dealer</td>
+          <td><%= @vehicle.car_dealer %></td>      
+        </tr>
+        <tr>
+          <td>Sales Executive</td>
+          <td><%= @vehicle.sales_executive %></td>      
+        </tr>        
+      </table>
+      <div class="clear">
+        <!-- for IE6 -->
+      </div>
+      <br>
+      
+      <table class="index">
+        <tr class="yellow">
+          <th colspan=3>LTO REGISTRATION INFORMATION</th>
+        </tr>
+        <tr>
+          <td colspan=3><strong>Registered Owner</strong>: <%= @vehicle.registered_owner%></td>
+        </tr>
+        <tr>
+          <td style="width:50%"><strong>LTO Office Where First Registered</strong>: <%= @vehicle.initial_registration_office %></td>
+          <td><strong>MV File No.</strong>: <%= @vehicle.registration_mv_file_number%></td>          
+        </tr>
+      </table>
+      <br>
+
+      <table class="index">
+        <tr class="yellow">
+          <th colspan=4>
+            RENEWAL HISTORY
+          </th>
+        </tr>
+        <tr class="yellow">
+          <th width="25%">Renewal Date</th>
+          <th width="25%">LTO Office</th>
+          <th width="25%">Amount Paid</th>
+          <th></th>          
+        </tr>        
+        <% @vehicle.registration_renewals.each do |registration_renewal| %>
+          <tr>
+            <td><%= registration_renewal.renewal_date %></td>
+            <td><%= registration_renewal.registration_office %></td>
+            <td><%= round_off(registration_renewal.amount_paid,2) %></td>
+            <td><%= link_to "delete", fleet_vehicle_registration_renewal_path(@fleet, @vehicle, registration_renewal), :method => :delete, :confirm => "Are you sure you want to delete this registration renewal record?"%></td>
+          </tr>  
+        <% end %>
+        <tr>
+          <%= form_for([@vehicle.fleet, @vehicle, @vehicle.registration_renewals.new]) do |f|%>
+            <td><%= f.date_select :renewal_date, :start_year => 1970, :order => [:month, :day, :year] %></td>
+            <td><%= f.text_field :registration_office %></td>
+            <td><%= f.text_field :amount_paid %></td>
+            <td><%= submit_tag "Update Renewal Info" %></td>
+          <% end %>
+        </tr>
+
+      </table>
+
+      <br>
+      <table class="index">
+        <tr class="yellow">
+          <th colspan='4'>
+            INSURANCE DETAILS
+          </th>            
+        </tr>
+        <tr class="yellow">
+          <th width="25%">Insurance Company</th>
+          <th width="25%">Insurance Policy No.</th>          
+          <th width="25%">Expiry Date</th>
+          <th></th>
+        </tr>
+        <% @vehicle.insurances.each do |insurance| %>
+
+        <tr>
+          <td><%= insurance.company %></td>      
+          <td><%= insurance.policy_number %></td>      
+          <td>
+            <% unless insurance.expiry_date.blank? %>
+              <span style="<%="#{'text-decoration: line-through' unless insurance.id.eql?(@vehicle.insurances.last.id) }"%>">
+              <%= insurance.expiry_date.to_date.to_s(:long)%> 
+              </span>
+            <% end %>
+          </td>
+
+          <td><%= link_to "delete", fleet_vehicle_insurance_path(@fleet, @vehicle, insurance), :method => :delete, :confirm => "Are you sure you want to delete this insurance record?"%></td>          
+        </tr>
+        <% end %>
+        <%= form_for([@vehicle.fleet, @vehicle, @vehicle.insurances.new]) do |f| %>
+          <tr>
+            <td><%= f.text_field :company %></td>
+            <td><%= f.text_field :policy_number %></td>
+            <td><%= f.date_select :expiry_date, :start_year => 1970, :order => [:month, :day, :year] %></td>
+            <td><%= f.submit "#{@vehicle.insurances.empty? ? 'Create Insurance Record' : 'Renew Insurance' }" %></td>
+          </tr>
+        <% end %>        
+      </table>
+
+      <br>
+      
+      <table class="index">
+        <tr class="yellow">
+          <th colspan=3>
+            Mileage Record (<%= @vehicle.average_mileage(:days) %> KM/day )
+            <br>
+            PMS Done every <%= @vehicle.pms_interval %> KMs
+            </th>
+        </tr>
+        <tr class="yellow">
+          <th width="25%">Date logged</td>
+          <th width="25%">Mileage Reading</td>
+          <th></th>
+        </tr>
+        <% @vehicle.mileages.each do |mileage| %>
+          <tr>
+            <% mileage_state = ''%>
+            <% mileage_state = 'invalid' if (!@vehicle.mileages.index(mileage).eql?(0) and !@vehicle.mileages[@vehicle.mileages.index(mileage) + 1].nil? and (@vehicle.mileages[@vehicle.mileages.index(mileage) + 1].reading < mileage.reading) ) or (!@vehicle.mileages.index(mileage).eql?(0) and !@vehicle.mileages[@vehicle.mileages.index(mileage) - 1].nil? and (@vehicle.mileages[@vehicle.mileages.index(mileage) - 1].reading > mileage.reading)) %>
+            <td><%= mileage.date_logged.to_date.to_s(:long) %></td>
+            <td class="<%= mileage_state %>">
+              <%= round_off(mileage.reading) %>
+            </td>
+            <td><%= link_to "delete", fleet_vehicle_mileage_path(@fleet, @vehicle, mileage), :method => :delete, :confirm => "Are you sure you want to delete this mileage record?"%></td>
+          </tr>
+        <% end %>
+        <tr>
+        <%= form_for([@vehicle.fleet,@vehicle, @vehicle.mileages.new]) do |f| %>
+          <td><%= f.date_select :date_logged, :start_year => 1970, :order => [:month, :day, :year] %></td>
+          <td><%= f.text_field :reading %>KM</td>
+          <td><%= f.submit %></td>
+        <% end %>
+        </tr>
+        
+      </table>
+
+    </div>
+  </div>
+</div>

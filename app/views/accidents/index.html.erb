@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="container_header">
+    <h3>Accident logs</h3>
+  </div>
+    <div class="container_body">
+  <div id="buttons_section">
+    <%= link_to "New Accident report", new_fleet_vehicle_accident_path(@fleet,@vehicle), :class => "button" %>    
+  </div>
+  <div style="clear:both">&nbsp;</div>  
+      <%= render :partial => "vehicles/vehicle_summary" %>
+  <table class="index">
+    <tr class="yellow">
+
+      <th>Accident date</th>
+      <th>Place of Accident</th>
+      <th>Description</th>
+      <th>Reference</th>
+      <th>Service center</th>
+      <th>Amount</th>
+      <th>Deductible</th>
+      <th>Remarks</th>
+      <th></th>
+    </tr>
+
+    <% @accidents.each do |accident| %>
+      <tr>
+        <td><%= accident.accident_date.to_date.to_s(:long) %></td>
+        <td><%= accident.location %></td>
+        <td><%= accident.description %></td>
+        <td><%= link_to accident.reference, fleet_vehicle_accident_path(@fleet, @vehicle, accident) %></td>
+        <td><%= accident.service_center_name %></td>
+        <td>PHP <%= round_off(accident.repair_estimate,2) %></td>
+        <td>PHP <%= round_off(accident.deductible,2) %></td>
+        <td><%= accident.remarks %></td>
+        <td><%= link_to 'Delete', fleet_vehicle_accident_path(@fleet,@vehicle, accident), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<br />
+
+<%= link_to 'New Accident Record', new_fleet_vehicle_accident_path %>

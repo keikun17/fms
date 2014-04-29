@@ -1,0 +1,30 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+<br>
+<div>
+  <fieldset class="admin-container">
+    <legend style=""><h1>Fuel Types</h1></legend>
+    <div id="buttons_section">
+      <div class="clear">&nbsp</div>
+      <%= link_to 'New Fuel type', new_fuel_type_path, :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <table class="index">
+      <tr class="yellow">
+        <th width="70%">Name</th>
+        <th></th>
+        <th></th>        
+      </tr>
+      <% @fuel_types.each do |fuel_type| %>
+        <tr>
+          <td><%= fuel_type.name %></td>
+          <td><%= link_to 'Edit', edit_fuel_type_path(fuel_type) %></td>
+          <td><%= link_to 'Delete', fuel_type, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  </fieldset>
+</div>
+<br>

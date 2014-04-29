@@ -1,0 +1,14 @@
+<table class="form">
+   <tr>
+    <td>Insurance Company</td>
+    <td><%= ff.text_field :company %></td>      
+  </tr>
+  <tr>
+    <td>Insurance Policy No.</td>
+    <td><%= ff.text_field :policy_number %></td>
+  </tr>
+  <tr>
+    <td>Expiry Date</td>
+    <td><%= ff.date_select :expiry_date, :include_blank => true, :order => [:month, :day, :year] %></td>      
+  </tr>
+</table>

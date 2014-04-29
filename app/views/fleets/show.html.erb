@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="container_header">
+    <h3><%= @fleet.name %></h3>
+  </div>
+
+  <div class="container_body">
+    <%= link_to 'Edit', edit_fleet_path(@fleet) %> | 
+    <%= link_to 'Fleet index', fleets_path %>
+    <br>
+    <br>
+    <table class="index">
+      <tr class="yellow">
+        <th colspan=2>Fleet Statistics</td>
+      </tr>
+
+      <tr>
+        <td>
+          Number of Vehicles in the fleet
+        </td>
+        <td>
+          <%= @fleet.vehicles.count %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Number of active vehicles
+        </td>
+        <td>
+          <%= @fleet.vehicles.active.count%>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          Number of inactive vehicles
+        </td>
+        <td>
+          <%= @fleet.vehicles.inactive.count%>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Number of Reminders
+        </td>
+        <td class="reminder">
+          <%= @fleet.reminders.count %>
+        </td>
+      </tr>
+      
+            
+    </table>
+    
+  </div>
+</div>

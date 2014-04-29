@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="container_header">
+    <h3>New Repair log for <%= @vehicle.complete_model %> (<%= @vehicle.plate_number %>)</h3>
+  </div>
+  <div class="container_body">
+    <div id="buttons_section">
+      <%= link_to 'Back to Repair Logs Index', fleet_vehicle_vehicle_repairs_path(@fleet, @vehicle), :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <%= render :partial => "vehicles/vehicle_summary"%>
+    <h3 class="section_header">New Vehicle Repair Log</h3>
+    <%= render 'form' %>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_logged: 
+  mileage: 1.5
+  vehicle: 
+
+two:
+  date_logged: 
+  mileage: 1.5
+  vehicle: 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  service_center: 
+  repair_estimate: 1.5
+  paid_by: MyString
+  remarks: MyText
+
+two:
+  service_center: 
+  repair_estimate: 1.5
+  paid_by: MyString
+  remarks: MyText

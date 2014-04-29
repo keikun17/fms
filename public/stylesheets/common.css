@@ -1,0 +1,312 @@
+/* RESET */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+fieldset,img { 
+	border:0;
+}
+
+a.button { 
+	text-decoration:none;
+	background-color:#FFB700;
+	padding:2px 20px 2px 20px;
+	margin-left:5px;
+	color: #A67700;
+	-webkit-box-shadow: #C8C8C8 -2px 2px 2px;
+	
+}
+
+a.button:visited {
+	text-decoration:none;
+	background-color:#FFB700;
+	padding:2px 20px 2px 20px;
+	margin-left:5px;
+	color: #A67700;
+	-webkit-box-shadow: #C8C8C8 -2px 2px 2px;
+}
+
+a.button:hover {
+	text-decoration:none;
+	background-color:#FFB700;
+	padding:2px 20px 2px 20px;
+	margin-left:5px;	
+	color: #A67700;
+	width:auto;
+	-webkit-box-shadow: #C8C8C8 -2px 2px 2px;
+}
+
+/*
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}*/
+
+ol,ul {
+	list-style:none;
+}
+
+caption,th {
+	text-align:left;
+}
+
+/*h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+	}*/
+
+	q:before,q:after {
+		content:'';
+	}
+	abbr,acronym { border:0;
+	}
+
+	/* Content */
+	#header{
+		/*	clear:	both;*/
+		background-color:	#146D50;
+		/*	position: relative;*/
+	}
+
+	#header h1{
+		color:white;
+		padding:5px 5px 5px 5px;	 
+	}
+
+	#main_content{
+/*		background-color: #87CEEB;*/
+		background-color: #8DE1C5;
+		padding-bottom:50px;
+	}
+	
+	.with_nav{
+		float:left;
+		width:80%;
+	}
+	
+	
+	#sidebar{
+		float:left;
+		background-color:white;
+		margin-left:10px;
+		margin-right:10px;
+		width:15%;
+	}
+	
+	#sidebar a{
+		text-decoration:none;
+		background-color:#8DE1C5;
+		display:block;
+		color:#146D50;
+		padding:5px 5px 5px 5px;
+		margin-bottom:1px;
+	}
+	
+	#sidebar a:hover{
+		background-color:#146D50;
+		color:white;
+	}
+
+	#buttons_section{
+		padding-bottom:10px;
+		float:left;
+		margin-top:5px;
+	}
+
+	fieldset#reminders_container{
+		background-color:#FFEB90;
+		border: 1px solid #FF3100;
+		margin-left:50px;
+		margin-right:50px;
+		margin-bottom:10px;
+		-webkit-box-shadow: #C8C8C8 -2px 2px 2px;
+	}
+
+	fieldset#reminders_container legend{
+		background-color:white;
+		border: 1px solid #FF3100;
+		color:#FF3100;
+		margin-left:10px;
+		font-weight:bold;
+	}
+	
+	fieldset#reminders_container p{
+		margin-left:10px;
+		margin-bottom:5px;
+	}
+	
+	#reminders_container ul{
+		margin-left:10px;
+	}
+	
+	#reminders_container legend a{
+		color:red;
+		text-decoration:none;
+	}
+	
+	#reminders_container legend a:visited{
+		color:red;
+		text-decoration:none;
+	}
+	
+	.expired a{
+		color:red !important;
+	}
+		
+	.expired a:visited;{
+		color:red !important;
+	}
+
+	.expired a:hover;{
+		color:red !important;
+	}
+
+	.invalid{
+		color:red !important;
+	}
+		
+	.reminder{ 
+		color:#FF3100;
+	}
+	.container{
+		padding:5px 5px 5px 5px;	
+	}
+
+	.container_header{
+		padding:5px 5px 5px 5px;	 
+		background-color:	#146D50;
+		color:white;
+	}
+
+	.container_body{
+		padding:5px 5px 50px 5px;	 
+		background-color:white;
+		color:black;
+	}
+
+	.login_container{
+		padding:10px 10px 10px 10px;
+	}
+
+	.front_page_content{
+		float:left;
+		width:78%;
+		background-color:white;
+		margin-right:10px;
+		height:400px;
+	}
+	
+	.login_section{
+		float:left;
+		padding:10px 0px 10px 0px;
+		width:20%;
+		max-width:240px !important;
+		background-color:white;
+		text-align:center;
+	}
+	
+	.user_registration{
+		width: 400px;
+	}
+	
+	.float_right{
+		float: right;
+	}
+	
+	table.index {
+		font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		margin-bottom:10px;
+		}
+
+	table.index th {
+		padding: 0 0.5em;
+		text-align: left;
+		}
+
+	table.index tr.yellow th {
+		border: 1px solid #FB7A31;
+		background: #FFC;
+		}
+
+	table.index td {
+		border: 1px solid #CCC;
+		padding: 0 0.5em;
+		}
+		
+	table.index td a {
+		color:blue;
+		text-decoration:none;
+	}
+	
+	table.index td a:hover{
+		color:blue;
+		display:inline;
+		background:none;
+		text-decoration:underline;
+	}
+
+	table.index td:first-child {
+		width: 190px;
+		}
+
+/*	table.index td+td {
+		border-left: 1px solid #CCC;
+		text-align: center;
+		}*/
+	
+	table.form {
+		border-spacing: 10px 10px;
+		border-collapse:separate;
+	}
+	
+	div#quick_jump{
+		float: right;
+		text-align:right;
+	}
+	
+	.section_header{
+		color:#A62000;
+	}
+	
+	.clear{
+		clear:both;
+	}
+	
+	.user_session{
+		float:right;
+		padding:0px 0px 5px 0px;
+	}
+	
+	.two_column_left{
+		width:45% !important;
+		float:left;
+		margin-right:10px;
+		
+	}
+	
+	.two_column_right{
+		width:45% !important;
+	}
+	
+	.strong{
+		font-weight:bold;
+	}
+	
+	table#vehicle_summary{
+		width:100%;
+	}
+	
+	table#vehicle_summary tr td{
+		padding-left:5px;
+		font-weight:bold;
+		width:33%;
+/*		border:1px solid black;*/
+	}

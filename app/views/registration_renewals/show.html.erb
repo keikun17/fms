@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Renewal date:</b>
+  <%= @registration_renewal.renewal_date %>
+</p>
+
+<p>
+  <b>Registration office:</b>
+  <%= @registration_renewal.registration_office %>
+</p>
+
+<p>
+  <b>Amount paid:</b>
+  <%= @registration_renewal.amount_paid %>
+</p>
+
+<p>
+  <b>Vehicle:</b>
+  <%= @registration_renewal.vehicle %>
+</p>
+
+
+<%= link_to 'Edit', edit_registration_renewal_path(@registration_renewal) %> |
+<%= link_to 'Back', registration_renewals_path %>

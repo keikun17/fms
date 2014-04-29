@@ -1,0 +1,16 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+<br>
+<div>
+  <fieldset class="admin-container">
+    <legend style=""><h1>Administrator Control Panel</h1></legend>
+    <ul class="admin-sections">
+      <li><%= link_to "Manage Service Centers", service_centers_path %></li>
+      <li><%= link_to "Manage Repair Types", repair_types_path %></li>
+      <li><%= link_to "Manage Fuel Types", fuel_types_path %></li>      
+    </ul>
+  </fieldset>
+</div>
+<br>
+

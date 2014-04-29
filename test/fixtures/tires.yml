@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  vehicle: 
+  replacement_date: 2010-09-29 16:40:09
+  odometer_reading: 1.5
+  brand: MyString
+  model: MyString
+  size: MyString
+  supplier: MyString
+  unit_price: 1.5
+  quantity: 1
+  parts_expense: 1.5
+  labor_expense: 1.5
+  amount_paid: 1.5
+  remarks: MyText
+
+two:
+  vehicle: 
+  replacement_date: 2010-09-29 16:40:09
+  odometer_reading: 1.5
+  brand: MyString
+  model: MyString
+  size: MyString
+  supplier: MyString
+  unit_price: 1.5
+  quantity: 1
+  parts_expense: 1.5
+  labor_expense: 1.5
+  amount_paid: 1.5
+  remarks: MyText

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vehicle:</b>
+  <%= @assignee.vehicle %>
+</p>
+
+<p>
+  <b>Direct line:</b>
+  <%= @assignee.direct_line %>
+</p>
+
+<p>
+  <b>Tel no:</b>
+  <%= @assignee.tel_no %>
+</p>
+
+<p>
+  <b>Designation:</b>
+  <%= @assignee.designation %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @assignee.email %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @assignee.mobile %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @assignee.firstname %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%= @assignee.surname %>
+</p>
+
+
+<%= link_to 'Edit', edit_assignee_path(@assignee) %> |
+<%= link_to 'Back', assignees_path %>

@@ -1,0 +1,37 @@
+/Users/Mengsk/.rvm/rubies/ruby-1.9.2-rc2/bin/ruby extconf.rb
+checking for rb_method_entry_t.body in method.h... no
+checking for vm_core.h... no
+Makefile creation failed
+*************************************************************
+
+  NOTE: For Ruby 1.9 installation instructions, please see:
+
+     http://wiki.github.com/mark-moseley/ruby-debug
+
+*************************************************************
+
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of
+necessary libraries and/or headers.  Check the mkmf.log file for more
+details.  You may need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/Mengsk/.rvm/rubies/ruby-1.9.2-rc2/bin/ruby
+	--with-ruby-dir
+	--without-ruby-dir
+	--with-ruby-include
+	--without-ruby-include=${ruby-dir}/include
+	--with-ruby-lib
+	--without-ruby-lib=${ruby-dir}/lib
+Requesting http://cloud.github.com/downloads/mark-moseley/ruby_core_source/preview_revision.yml
+Downloading http://cloud.github.com/downloads/mark-moseley/ruby_core_source/preview_revision.yml

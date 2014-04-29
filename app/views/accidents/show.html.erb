@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="container_header">
+    <h3>Accident log <%= @accident.reference %> for <%= @vehicle.complete_model %> (<%= @vehicle.plate_number %>)</h3>
+  </div>
+  <div class="container_body">
+    <div id="buttons_section">
+      <%= link_to 'Back to Accident Logs Index', fleet_vehicle_accidents_path(@fleet, @vehicle), :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <h3 class="section_header">Accident Log</h3>
+
+      <fieldset style="border:1px solid black">
+        <legend style="margin-left:10px">Accident Summary</legend>
+      <table class="form">
+
+        <tr>
+          <td><b>Accident date:</b></td>
+          <td><%= @accident.accident_date %></td>
+        </tr>
+        <tr>
+          <td><b>Location:</b></td>
+          <td><%= @accident.location %></td>
+        </tr>
+        <tr>
+          <td><b>Description:</b></td>
+          <td><%= @accident.description %></td>
+        </tr>
+        <tr>
+          <td><b>Reference:</b></td>
+          <td><%= @accident.reference %></td>
+        </tr>
+        <tr>
+          <td><b>Service center:</b></td>
+          <td><%= @accident.service_center_name %></td>
+        </tr>
+        <tr>
+          <td><b>Repair estimate:</b></td>
+          <td><%= @accident.repair_estimate %></td>
+        </tr>
+        <tr>
+          <td><b>Deductible:</b></td>
+          <td><%= @accident.deductible %></td>
+        </tr>
+        <tr>
+          <td><b>Remarks:</b></td>
+          <td><%= @accident.remarks %></td>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+    <h3>Third Party (Vehicle)</h3>
+    <br>
+    <table width="100%" class="index" border="1">
+      <tr class="yellow">
+        <th>Service Center</th>
+        <th>Repair Estimate</th>
+        <th>Paid by</th>
+        <th>Remarks</th>
+      </tr>
+      <% @accident.accident_vehicle_expenses.each do |accident_vehicle_expense| %>
+        <tr>
+          <td><%= accident_vehicle_expense.service_center_name %></td>
+          <td>PHP <%= round_off(accident_vehicle_expense.repair_estimate,2) %></td>
+          <td><%= accident_vehicle_expense.paid_by %></td>
+          <td><%= accident_vehicle_expense.remarks %></td>
+        </tr>
+      <% end %>
+
+    </table>
+    <br>
+    <h3>Third Party (Assignee)</h3>
+    <br>
+    <table width="100%" class="index" border="1">
+      <tr class="yellow">
+        <th>Service Center</th>
+        <th>Expense</th>
+        <th>Paid by</th>
+        <th>Remarks</th>
+      </tr>
+      <% @accident.accident_assignee_expenses.each do |accident_assignee_expense| %>
+        <tr>
+          <td><%= accident_assignee_expense.hospital %></td>
+          <td>PHP <%= round_off(accident_assignee_expense.repair_estimate,2) %></td>
+          <td><%= accident_assignee_expense.paid_by %></td>
+          <td><%= accident_assignee_expense.remarks %></td>
+        </tr>
+      <% end %>
+
+    </table>
+    <br>
+
+    
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<table id="vehicle_summary" style="background-color:#146D50;color:white">
+  <tr>
+    <td><%= @fleet.name %></td>
+    <td>Today is <%= Time.now.strftime("%d-%b-%y") %></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= @vehicle.complete_model %></td>
+    <td><%= @vehicle.plate_number %></td>
+    <td>Est. Mileage today : <%= round_off(@vehicle.estimated_mileage_today,2) %> Km </td>
+    <td></td>            
+  </tr>
+</table>

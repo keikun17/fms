@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vehicle:</b>
+  <%= @battery.vehicle %>
+</p>
+
+<p>
+  <b>Odometer reading:</b>
+  <%= @battery.odometer_reading %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @battery.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @battery.model %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @battery.size %>
+</p>
+
+<p>
+  <b>Supplier:</b>
+  <%= @battery.supplier %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @battery.amount %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @battery.remarks %>
+</p>
+
+
+<%= link_to 'Edit', edit_battery_path(@battery) %> |
+<%= link_to 'Back', batteries_path %>

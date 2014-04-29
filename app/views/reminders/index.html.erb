@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="container_header">
+    <h3><%= @fleet.name %> Vehicle Reminders</h3>
+  </div>
+
+  <div class="container_body">
+    <table class="index">
+      <tr class="yellow">
+        <th>Plate Number</th>
+        <th>Year and Model</th>
+        <th>Reminder Type</th>
+        <th>Average Mileage (km/day)</th>
+        <th>Current Mileage Reading</th>
+      </tr>
+
+    <% @reminders.each do |reminder| %>
+      <tr>
+        <td><%= link_to reminder.parent.plate_number, fleet_vehicle_path(@fleet, reminder.parent) %></td>
+        <td><%= reminder.parent.complete_model %></td>
+        <td><%= "Expired " if reminder.expired? %> <%= reminder.reminder_name %></td>
+        <td><%= reminder.parent.average_mileage(:days)%> km/day</td>
+        <td><%= mileage_reading(reminder.parent) %> km</td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+  </div>
+</div>

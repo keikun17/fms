@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="container_header">
+    <h3><%= @fleet.name %> Vehicles</h3>
+  </div>
+
+  <div class="container_body">
+    
+    <% case params[:action]%>
+    <% when 'index' %>
+      <%= render :partial => "reminders/fleet_reminders" unless @fleet.reminders.empty? %>
+      <div id="buttons_section">
+        <%= link_to 'New vehicle', new_fleet_vehicle_path, :class => "button"  %>
+      </div>
+    <% when 'search' %>
+      <div style="font-style:italic">
+        Displaying results for <%= @fleet.name%> vehicles with plate number '<%=params[:plate_number]%>'
+      </div>
+    <% end %>
+      
+    
+    <div style="clear:both">&nbsp;</div>
+    <center>
+      <%= will_paginate @vehicles %>      
+    </center>
+    <table class="index">
+      <tr class="yellow">
+        <th colspan=2 style="padding:2px;background-color:lightblue">
+          <% form_tag search_fleet_vehicles_path(:fleet_id => params[:fleet_id]), :method => :get do %>
+          SEARCH PLATE NUMBER
+          <%= text_field_tag :plate_number%>
+          <%= submit_tag "Search" %>
+          <% end %>
+        </th>
+      </tr>
+      <tr class="yellow">
+        <th>Plate Number</th>
+        <th>Year and Model</th>
+        <th>Assignee</th>
+        <th>Average Mileage (km/day)</th>
+        <th>Current Mileage Reading</th>        
+        <th colspan = 2></th>
+      </tr>
+
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= link_to vehicle.plate_number, fleet_vehicle_path(@fleet, vehicle) %></td>
+        <td><%= vehicle.complete_model %></td>
+        <td><%= vehicle.assignee.fullname if vehicle.assignee %></td>
+        <td><%= round_off(vehicle.average_mileage(:days),2) %> km/day</td>
+        <td><%= round_off(mileage_reading(vehicle),2) %> km</td>
+        <td><%= link_to 'Edit', edit_fleet_vehicle_path(@fleet,vehicle) %></td>
+        <td><%= link_to 'Delete', fleet_vehicle_path(@fleet, vehicle), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+    <center>
+      <%= will_paginate @vehicles %>      
+    </center>
+    <br />
+  </div>
+</div>

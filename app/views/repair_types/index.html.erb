@@ -1,0 +1,30 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+<br>
+<div>
+  <fieldset class="admin-container">
+    <legend style=""><h1>Repair Types</h1></legend>
+    <div id="buttons_section">
+      <div class="clear">&nbsp</div>
+      <%= link_to 'New Repair type', new_repair_type_path, :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <table class="index">
+      <tr class="yellow">
+        <th  width="70%">Name</th>
+        <th></th>
+        <th></th>                
+      </tr>
+      <% @repair_types.each do |repair_type| %>
+        <tr>
+          <td><%= repair_type.name %></td>
+          <td><%= link_to 'Edit', edit_repair_type_path(repair_type) %></td>
+          <td><%= link_to 'Delete', repair_type, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  </fieldset>
+</div>
+<br>

@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="container_header">
+    <h3>Operating Expense logs</h3>
+  </div>
+    <div class="container_body">
+  <div id="buttons_section">
+    <%#= link_to "New Vehicle Repair report", new_fleet_vehicle_vehicle_repair_path(@fleet,@vehicle), :class => "button" %>    
+  </div>
+  <div style="clear:both">&nbsp;</div>  
+      <%= render :partial => "vehicles/vehicle_summary" %>
+  <br>
+  <table class="index">
+    <tr class="yellow">
+      <th class="yellow" colspan="13">
+        Operating Expenses for the year <%= select_tag "year", options_for_select((1970..Time.now.year).each do |y| [y,y] end , :selected => params["year"].nil? ? Time.now.year : params["year"].to_i), :onchange =>"document.location.href='#{fleet_vehicle_operating_expenses_path(@fleet, @vehicle)}?year='+this.value+''" %> 
+         (in PHP)
+      </th>
+    </tr>
+    <tr>
+      <td style="width:40px"></td>
+      <% ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"].each do |month| %> 
+        <td style="width:50px"><%= month %></td>
+      <% end%>
+    </tr>
+
+    <tr>
+      <td style="width:40px">PMS</td>
+      <% (1..12).each do |month| %>
+        <td style="text-align:right"><%= round_off(@vehicle.preventive_maintenances.expenses_for_the_month(month, @year),2) %> </td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td style="width:40px">Repairs</td>
+      <% (1..12).each do |month| %>
+        <td style="text-align:right"><%= round_off(@vehicle.total_repair_expenses_for_month(month, @year),2) %> </td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td style="width:40px">Tires</td>
+      <% (1..12).each do |month| %>
+        <td style="text-align:right"><%= round_off(@vehicle.tires.expenses_for_the_month(month, @year),2) %> </td>
+      <% end %>
+      </tr>
+    </tr>
+
+    <tr>
+      <td style="width:40px">Batteries</td>
+      <% (1..12).each do |month| %>
+        <td style="text-align:right"><%= round_off(@vehicle.batteries.expenses_for_the_month(month, @year),2) %> </td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td style="width:40px">Subtotal</td>
+      <% (1..12).each do |month| %>
+        <td style="text-align:right"><%= round_off(@vehicle.expense_for_the_month(month, @year), 2)%></td>
+      <% end %>
+    </tr>
+
+    
+  </table>
+ 
+  </div>
+</div>

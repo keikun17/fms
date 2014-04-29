@@ -1,0 +1,35 @@
+<%= form_for([@vehicle.fleet, @vehicle, @vehicle.preventive_maintenances.new]) do |f|%>
+  <table class="form">
+    <tr>
+      <td><%= f.label :pms_milestone, "PMS Milestone"%></td>
+      <td><%= f.text_field :pms_milestone%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :reference, "Reference"%></td>
+      <td><%= f.text_field :reference%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :odometer_reading, "Odometer Reading"%></td>
+      <td><%= f.text_field :odometer_reading%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :pms_date, "Date"%></td>
+      <td><%= f.date_select :pms_date, :start_year => 1970, :order => [:month, :day, :year] %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :service_center, "Service Center"%></td>
+      <td><%= f.select :service_center_id, options_for_select(ServiceCenter.all.collect{|x| [x.name, x.id]}, f.object.service_center)%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :amount, "Amount"%></td>
+      <td><%= f.text_field :amount %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :remarks, "Remarks" %></td>
+      <td><%= f.text_area :remarks%></td>
+    </tr>
+    <tr>
+      <td colspan=2><%= submit_tag "Add Preventive Maintenance Log" %></td>
+    </tr>
+  </table>
+<% end %>

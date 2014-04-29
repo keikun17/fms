@@ -1,0 +1,29 @@
+<h1>Listing accident_assignee_expenses</h1>
+
+<table>
+  <tr>
+    <th>Service center</th>
+    <th>Repair estimate</th>
+    <th>Paid by</th>
+    <th>Remarks</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accident_assignee_expenses.each do |accident_assignee_expense| %>
+  <tr>
+    <td><%= accident_assignee_expense.service_center %></td>
+    <td><%= accident_assignee_expense.repair_estimate %></td>
+    <td><%= accident_assignee_expense.paid_by %></td>
+    <td><%= accident_assignee_expense.remarks %></td>
+    <td><%= link_to 'Show', accident_assignee_expense %></td>
+    <td><%= link_to 'Edit', edit_accident_assignee_expense_path(accident_assignee_expense) %></td>
+    <td><%= link_to 'Delete', accident_assignee_expense, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Accident assignee expense', new_accident_assignee_expense_path %>

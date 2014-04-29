@@ -1,0 +1,10 @@
+<% form_for(@fleet, :html => {:method => @fleet.new_record? ? :post : :put}) do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+  <br>
+  <br>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

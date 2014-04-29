@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  renewal_date: 2010-09-07
+  registration_office: MyString
+  amount_paid: 1.5
+  vehicle: 
+
+two:
+  renewal_date: 2010-09-07
+  registration_office: MyString
+  amount_paid: 1.5
+  vehicle: 

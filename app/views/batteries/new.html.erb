@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="container_header">
+    <h3>New Batteries for <%= @vehicle.complete_model %> (<%= @vehicle.plate_number %>)</h3>
+  </div>
+  <div class="container_body">
+    <div id="buttons_section">
+      <%= link_to 'Back to Battery Index', fleet_vehicle_batteries_path(@fleet, @vehicle), :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <h3 class="section_header">New Batteries</h3>
+    <%= render 'form' %>
+  </div>
+</div>

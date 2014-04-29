@@ -1,0 +1,29 @@
+<h1>Listing registration_renewals</h1>
+
+<table>
+  <tr>
+    <th>Renewal date</th>
+    <th>Registration office</th>
+    <th>Amount paid</th>
+    <th>Vehicle</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @registration_renewals.each do |registration_renewal| %>
+  <tr>
+    <td><%= registration_renewal.renewal_date %></td>
+    <td><%= registration_renewal.registration_office %></td>
+    <td><%= registration_renewal.amount_paid %></td>
+    <td><%= registration_renewal.vehicle %></td>
+    <td><%= link_to 'Show', registration_renewal %></td>
+    <td><%= link_to 'Edit', edit_registration_renewal_path(registration_renewal) %></td>
+    <td><%= link_to 'Delete', registration_renewal, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Registration renewal', new_registration_renewal_path %>

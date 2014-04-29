@@ -1,0 +1,27 @@
+<h1>Listing mileages</h1>
+
+<table>
+  <tr>
+    <th>Date logged</th>
+    <th>Reading</th>
+    <th>Vehicle</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mileages.each do |mileage| %>
+  <tr>
+    <td><%= mileage.date_logged %></td>
+    <td><%= mileage.reading %></td>
+    <td><%= mileage.vehicle %></td>
+    <td><%= link_to 'Show', mileage %></td>
+    <td><%= link_to 'Edit', edit_mileage_path(mileage) %></td>
+    <td><%= link_to 'Delete', mileage, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mileage', new_mileage_path %>

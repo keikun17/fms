@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Service center:</b>
+  <%= @accident_vehicle_expense.service_center %>
+</p>
+
+<p>
+  <b>Repair estimate:</b>
+  <%= @accident_vehicle_expense.repair_estimate %>
+</p>
+
+<p>
+  <b>Paid by:</b>
+  <%= @accident_vehicle_expense.paid_by %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @accident_vehicle_expense.remarks %>
+</p>
+
+
+<%= link_to 'Edit', edit_accident_vehicle_expense_path(@accident_vehicle_expense) %> |
+<%= link_to 'Back', accident_vehicle_expenses_path %>

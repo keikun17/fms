@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="container_header">
+    <h3>New Assignee for <%= @vehicle.complete_model %> (<%= @vehicle.plate_number %>)</h3>
+  </div>
+  <div class="container_body">
+    <div id="buttons_section">
+      <%= link_to 'Back to Vehicle Page', fleet_vehicle_path(@fleet, @vehicle), :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <h3 class="section_header">Edit Assignee</h3>
+    <%= render 'form' %>
+  </div>
+</div>

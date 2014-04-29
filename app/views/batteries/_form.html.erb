@@ -1,0 +1,44 @@
+<%= form_for([@fleet, @vehicle, @battery]) do |f|%>
+<table class="form">
+
+  <div class="field">
+    <%= f.label :replacement_date %><br />
+    <%= f.date_select :replacement_date, :order => [:month, :day, :year] %>
+  </div>
+  <div class="field">
+    <%= f.label :odometer_reading %><br />
+    <%= f.text_field :odometer_reading %>
+  </div>
+  <div class="field">
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :supplier %><br />
+    <%= f.text_field :supplier %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_area :remarks %>
+  </div>
+
+
+  <tr>
+    <td colspan=2><%= submit_tag "Add Battery Log" %></td>
+  </tr>
+</table>
+<% end %>
+

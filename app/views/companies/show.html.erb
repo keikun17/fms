@@ -1,0 +1,28 @@
+<div class="container user_registration">
+  <div class="container_header">
+    <h3><%= @company.name%> Fleets</h3>
+  </div>
+  <div class="container_body">
+    <span class="float-right"><%= link_to "Add Fleet", new_company_fleet_path(@company) %></span>
+  <table class="index">
+    <tr>
+      <th>ID</th>
+      <th>Fleet Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @company.fleets.each do |fleet|%>
+    <tr>
+      <td><%= fleet.id %></td>
+      <td><%= fleet.name %></td>
+      <td><%= link_to 'Show', company_fleet_path(@company,fleet) %></td>
+      <td><%= link_to 'Edit', edit_company_fleet_path(@company,fleet) %></td>
+      <td><%= link_to 'Delete', company_fleet_path(@company,fleet), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

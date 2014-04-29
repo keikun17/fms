@@ -1,0 +1,10 @@
+<% form_for(@company) do |f| %>
+  <%= f.error_messages %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

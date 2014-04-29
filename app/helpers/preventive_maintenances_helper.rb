@@ -1,0 +1,2 @@
+module PreventiveMaintenancesHelper
+end

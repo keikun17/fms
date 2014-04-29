@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  vehicle: 
+  odometer_reading: 1.5
+  brand: MyString
+  model: MyString
+  size: MyString
+  supplier: MyString
+  amount: 1.5
+  remarks: MyText
+
+two:
+  vehicle: 
+  odometer_reading: 1.5
+  brand: MyString
+  model: MyString
+  size: MyString
+  supplier: MyString
+  amount: 1.5
+  remarks: MyText

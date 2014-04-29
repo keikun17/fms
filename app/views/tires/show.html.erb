@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vehicle:</b>
+  <%= @tire.vehicle %>
+</p>
+
+<p>
+  <b>Replacement date:</b>
+  <%= @tire.replacement_date %>
+</p>
+
+<p>
+  <b>Odometer reading:</b>
+  <%= @tire.odometer_reading %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @tire.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @tire.model %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @tire.size %>
+</p>
+
+<p>
+  <b>Supplier:</b>
+  <%= @tire.supplier %>
+</p>
+
+<p>
+  <b>Unit price:</b>
+  <%= @tire.unit_price %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @tire.quantity %>
+</p>
+
+<p>
+  <b>Parts expense:</b>
+  <%= @tire.parts_expense %>
+</p>
+
+<p>
+  <b>Labor expense:</b>
+  <%= @tire.labor_expense %>
+</p>
+
+<p>
+  <b>Amount paid:</b>
+  <%= @tire.amount %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @tire.remarks %>
+</p>
+
+
+<%= link_to 'Edit', edit_tire_path(@tire) %> |
+<%= link_to 'Back', tires_path %>

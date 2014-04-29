@@ -1,0 +1,44 @@
+<%= form_for([@fleet, @vehicle, @assignee]) do |f| %>
+  <% if @assignee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignee.errors.count, "error") %> prohibited this assignee from being saved:</h2>
+
+      <ul>
+      <% @assignee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :surname %><br />
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :designation %><br />
+    <%= f.text_field :designation %>
+  </div>
+  <div class="field">
+    <%= f.label :direct_line %><br />
+    <%= f.text_field :direct_line %>
+  </div>
+  <div class="field">
+    <%= f.label :tel_no %><br />
+    <%= f.text_field :tel_no %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

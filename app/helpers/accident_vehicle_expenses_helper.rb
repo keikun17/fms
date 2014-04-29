@@ -1,0 +1,2 @@
+module AccidentVehicleExpensesHelper
+end

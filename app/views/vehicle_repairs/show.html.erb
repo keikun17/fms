@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="container_header">
+    <h3>Repair log <%= @vehicle_repair.reference_number %> for <%= @vehicle.complete_model %> (<%= @vehicle.plate_number %>)</h3>
+  </div>
+  <div class="container_body">
+    <div id="buttons_section">
+      <%= link_to 'Back to Repair Logs Index', fleet_vehicle_vehicle_repairs_path(@fleet, @vehicle), :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <h3 class="section_header">Repair Log</h3>
+
+      <fieldset style="border:1px solid black">
+        <legend style="margin-left:10px">Repair Summary</legend>
+      <table class="form">
+
+        <tr>    
+          <td>Reference Number</td>
+          <td><%= @vehicle_repair.reference_number %></td>
+        </tr>
+        <tr>
+          <td>Service Center</td>
+          <td><%= @vehicle_repair.service_center_name %></td>
+        </tr>
+        <tr>    
+          <td>Invoice Date</td>
+          <td><%= @vehicle_repair.invoice_date.strftime("%d-%b-%y") %></td>
+        </tr>
+        <tr>    
+          <td>Mileage Reading</td>
+          <td><%= @vehicle_repair.odometer_reading %> Km</td>
+        </tr>
+        <tr>    
+          <td>Remarks</td>
+          <td><%= @vehicle_repair.remarks %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>      
+        </tr>  
+      </table>
+      </fieldset>
+      <br>
+      <table width="100%" class="index" border="1">
+        <tr class="yellow">
+          <th>Qty</th>
+          <th>Items/Particulars</th>
+          <th>Unit Price</th>
+          <th>Amount</th>
+          <th>Type of Repair</th>
+          <th>Warranty</th>
+        </tr>
+        <% @vehicle_repair.vehicle_repair_details.each do |vehicle_repair_detail| %>
+          <tr>
+            <th><%= vehicle_repair_detail.quantity %></th>
+            <th><%= vehicle_repair_detail.item %></th>
+            <th><%= vehicle_repair_detail.unit_price %></th>
+            <th><%= vehicle_repair_detail.amount %></th>
+            <th><%= vehicle_repair_detail.repair_type_name %></th>
+            <th><%= vehicle_repair_detail.warranty %></th>                                                  
+          </tr>
+        <% end %>
+
+      </table>
+      <br>
+
+  </div>
+</div>

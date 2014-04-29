@@ -1,0 +1,6 @@
+<tr>
+  <td><%= ff.select :service_center_id, options_for_select(ServiceCenter.all.collect{|x| [x.name, x.id]}) %></td>
+  <td><%= ff.text_field :repair_estimate %></td>
+  <td><%= ff.text_field :paid_by %></td>
+  <td><%= ff.text_area :remarks, :rows => 2, :cols => 20 %></td>
+</tr>

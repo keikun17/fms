@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  vehicle: 
+  direct_line: MyString
+  tel_no: MyString
+  designation: MyString
+  email: MyString
+  mobile: MyString
+  firstname: MyString
+  surname: MyString
+
+two:
+  vehicle: 
+  direct_line: MyString
+  tel_no: MyString
+  designation: MyString
+  email: MyString
+  mobile: MyString
+  firstname: MyString
+  surname: MyString

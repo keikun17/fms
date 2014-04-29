@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="container_header">
+    <h3>Repair logs</h3>
+  </div>
+    <div class="container_body">
+  <div id="buttons_section">
+    <%= link_to "New Vehicle Repair report", new_fleet_vehicle_vehicle_repair_path(@fleet,@vehicle), :class => "button" %>    
+  </div>
+  <div style="clear:both">&nbsp;</div>  
+      <%= render :partial => "vehicles/vehicle_summary" %>
+  <table class="index">
+    <tr class="yellow">
+      <th style="width:100px">Invoice Date</th>
+      <th>Odometer Reading</th>
+      <th>Reference</th>
+      <th>Service Center</th>
+      <th>Amount</th>
+      <th>Types of Repair</th>
+      <th>Remarks</th>    
+      <th></th>      
+    </tr>        
+    <% @vehicle.vehicle_repairs.each do |vehicle_repair| %>
+      <tr>
+        <td style="width:90px"><%= vehicle_repair.invoice_date.strftime("%d-%b-%y") %></td>
+        <td><%= round_off(vehicle_repair.odometer_reading,2) %> Km</td>
+        <td><%= link_to(vehicle_repair.reference_number, fleet_vehicle_vehicle_repair_path(@fleet, @vehicle, vehicle_repair)) %></td>
+        <td><%= vehicle_repair.service_center_name %></td>
+        <td>PHP <%= round_off(vehicle_repair.vehicle_repair_details.sum(:amount),2) %></td>
+        <td><%= vehicle_repair.repair_types.join(',')  %></td>        
+        <td><%= vehicle_repair.remarks %></td>
+        <td><%= link_to "delete", fleet_vehicle_vehicle_repair_path(@fleet, @vehicle, vehicle_repair), :method => :delete, :confirm => "Are you sure you want to delete this repair record?"%></td>
+      </tr>  
+    <% end %>
+
+  </table>
+  <br>
+  <table border=1>
+  <tr>
+    <th>YEAR-TO-DATE REPAIRS EXPENSES</th>
+    <td>PHP <%= round_off(@vehicle.total_repair_expenses_for_year(Time.now.year),2)%></td>
+  </tr>
+  <tr>  
+    <th>REPAIRS EXPENSES FOR THE MONTH</th>
+    <td>PHP <%= round_off(@vehicle.total_repair_expenses_for_month(Time.now.month, Time.now.year),2)%></td>
+  </tr>
+  <tr>    
+    <th>TOTAL REPAIR EXPENSES</th>
+    <td>PHP <%= round_off(@vehicle.vehicle_repair_details.sum(:amount), 2)%></td>
+  </tr>
+  <tr>    
+    <th>REPAIR COSTS PER KM</th>
+    <td>PHP <%= round_off(@vehicle.repair_expense_per_km,2) %></td>
+  </tr>
+  </table>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<fieldset id="reminders_container">
+  <legend><%= link_to "REMINDERS", fleet_reminders_path(@fleet) %></legend>
+  <ul>
+    <% unless @fleet.reminders.vehicle_registrations.upcoming.empty? %>
+      <li class="strong"><%= link_to @fleet.reminders.vehicle_registrations.upcoming.count.to_s + " Expiring Registration", fleet_reminders_path(@fleet, :type => "2") %></li>
+    <% end %>
+
+    <% unless @fleet.reminders.vehicle_registrations.expired.empty? %>
+      <li class="expired strong"><%= link_to @fleet.reminders.vehicle_registrations.expired.count.to_s + " Expired Registration", fleet_reminders_path(@fleet, :type => "2", :expired => "true") %> </li>
+    <% end %>
+
+    <% unless @fleet.reminders.vehicle_insurances.upcoming.empty? %>
+      <li class="strong"><%= link_to @fleet.reminders.vehicle_insurances.upcoming.count.to_s + " Expiring Vehicle Insurance", fleet_reminders_path(@fleet, :type => "3") %></li>
+    <% end %>
+
+    <% unless @fleet.reminders.vehicle_insurances.expired.empty? %>
+      <li class="expired strong"><%= link_to @fleet.reminders.vehicle_insurances.expired.count.to_s + " Expired Vehicle Insurance", fleet_reminders_path(@fleet, :type => "3", :expired => "true") %> </li>
+    <% end %>
+
+    <% unless @fleet.reminders.pms.upcoming.empty? %>
+      <li class="strong"><%= link_to @fleet.reminders.pms.upcoming.count.to_s + " Vehicles that must undergo PMS soon", fleet_reminders_path(@fleet, :type => "1") %></li>
+    <% end %>
+
+    <% unless @fleet.reminders.pms.expired.empty? %>
+      <li class="expired strong"><%= link_to @fleet.reminders.pms.expired.count.to_s + " Vehicles that must undergo PMS now", fleet_reminders_path(@fleet, :type => "1", :expired => "true") %></li>
+    <% end %>
+  </p> 
+</fieldset>

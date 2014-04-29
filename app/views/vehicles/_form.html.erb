@@ -1,0 +1,117 @@
+<% form_for([@fleet,@vehicle],:html => {:method => @vehicle.new_record? ? :post : :put}) do |f| %>
+  <%= f.error_messages %>
+
+  <h3 class="section_header">Vehicle Details</h3>
+  <hr>
+  <table class="form">
+    <tr>
+      <td><%= f.label :year %></td>
+      <td><%= f.text_field :year %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :make %></td>
+      <td><%= f.text_field :make %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :model %></td>
+      <td><%= f.text_field :model %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :plate_number %></td>
+      <td><%= f.text_field :plate_number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :color %></td>
+      <td><%= f.text_field :color %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :conduction_sticker_number %></td>
+      <td><%= f.text_field :conduction_sticker_number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :fuel_type_id %></td>
+      <td><%= f.select :fuel_type_id, options_for_select(FuelType.all.collect{|x| [x.name, x.id]}) %></td>      
+    </tr>
+    <tr>
+      <td><%= f.label :transmission_type %></td>
+      <td><%= f.text_field :transmission_type %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :chassis_number %></td>
+      <td><%= f.text_field :chassis_number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :engine_number %></td>
+      <td><%= f.text_field :engine_number %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :state %></td>
+      <td><%= f.select :state, options_for_select(Vehicle::STATES,f.object.state) %></td>
+    </tr>
+  </table>        
+  <br>
+
+  <h3 class="section_header">PMS Settings</h3>
+  <hr>
+  <table class="form">
+    <tr>
+      <td><%= f.label :pms_interval %> (in KM)</td>
+      <td><%= f.text_field :pms_interval %></td>
+    </tr>
+  </table>
+  <br>
+  
+  <h3 class="section_header">Vehicle Assignment Details</h3>
+  <hr>
+  <table class="form">
+    <tr>
+      <td><%= f.label :division %></td>
+      <td><%= f.text_field :division %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :area %></td>
+      <td><%= f.text_field :area %></td>
+    </tr>   
+  </table>
+  <br>
+
+  <h3 class="section_header">Vehicle Purchase Details</h3>
+  <hr>
+  <table class="form">
+    <tr>
+      <td><%= f.label :car_dealer %></td>
+      <td><%= f.text_field :car_dealer %></td>      
+    </tr>
+    <tr>
+      <td><%= f.label :sales_executive %></td>
+      <td><%= f.text_field :sales_executive %></td>      
+    </tr>
+    <tr>
+      <td><%= f.label :purchase_date %></td>
+      <td><%= f.date_select :purchase_date, :start_year => 1970, :order => [:month, :day, :year] %></td>      
+    </tr>
+    <tr>
+      <td><%= f.label :purchase_amount %></td>
+      <td><%= f.text_field :purchase_amount %></td>      
+    </tr>    
+  </table>
+
+  <h3 class="section_header">Vehicle Registration Details</h3>
+  <hr>
+  <table class="form">
+     <tr>
+      <td>Registered Owner</td>
+      <td><%= f.text_field :registered_owner %></td>      
+    </tr>
+    <tr>
+      <td>Registration Office</td>
+      <td><%= f.text_field :initial_registration_office %></td>      
+    </tr>
+    <tr>
+      <td>MV File Number</td>
+      <td><%= f.text_field :registration_mv_file_number %></td>      
+    </tr>
+  </table>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,30 @@
+<tr>
+<td style="width:10%">
+  <%= f.text_field :quantity, :size => 5 %>
+</td>
+
+<td>
+  <%= f.text_field :item %>
+</td>
+
+<td>
+  PHP <%= f.text_field :unit_price, :size => 15 %>
+</td>
+
+<td>
+  PHP <%= f.text_field :amount, :size => 15 %>
+</td>
+
+<td>
+  <%= f.select :repair_type_id ,options_for_select(RepairType.all.collect{|x| [x.name,x.id]})  %>
+</td>
+
+<td>
+  <%= f.text_field :warranty, :size => 20 %>
+</td>
+
+<td>
+  <%= link_to_remove_table_fields "remove", f %>
+</td>
+
+</tr>

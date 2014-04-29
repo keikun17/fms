@@ -1,0 +1,37 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+<br>
+<div>
+  <fieldset class="admin-container">
+    <legend style=""><h1>Service Centers</h1></legend>
+    <div id="buttons_section">
+      <div class="clear">&nbsp</div>
+      <%= link_to 'New Service center', new_service_center_path, :class => "button" %>
+    </div>
+    <div style="clear:both">&nbsp;</div>    
+    <table class="index">
+      <tr class="yellow">
+        <th width="20%">Name</th>
+        <th width="60%">Address</th>
+        <th></th>
+        <th></th>        
+      </tr>
+    <% @service_centers.each do |service_center| %>
+      <tr>
+        <td><%= service_center.name %></td>
+        <td><%= service_center.address %></td>
+        <td><%= link_to 'Edit', edit_service_center_path(service_center) %></td>
+        <td><%= link_to 'Delete', service_center, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+
+  </fieldset>
+</div>
+<br>
+
+
+
+
+

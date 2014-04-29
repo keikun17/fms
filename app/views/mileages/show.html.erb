@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date logged:</b>
+  <%= @mileage.date_logged %>
+</p>
+
+<p>
+  <b>Reading:</b>
+  <%= @mileage.reading %>
+</p>
+
+<p>
+  <b>Vehicle:</b>
+  <%= @mileage.vehicle %>
+</p>
+
+
+<%= link_to 'Edit', edit_mileage_path(@mileage) %> |
+<%= link_to 'Back', mileages_path %>

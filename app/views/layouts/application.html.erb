@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fleet Management System</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <%= yield :head %>
+</head>
+<body>
+  <div id="header">
+    <h1>Fleet Management System</h1>
+    <div class="user_session" style="float:right">
+      <%=link_to "Sign out", destroy_company_user_session_path, :style=>"color:white" if company_user_signed_in? %>
+    </div>
+    <div class="clear">
+      <!-- fix for IE -->
+    </div>
+  </div>
+  <div id="navigation">
+    <%= render :partial => "shared/admin_tools"%>
+    <%= render :partial => "shared/quick_jump"%>
+    <div class="clear">
+      <!-- fix for IE -->
+    </div>
+  </div>
+  <%= render :partial => "shared/side_bar" %>
+  <div id="main_content" class="<%= !@vehicle.blank? ? 'with_nav' : ''%>">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <p class="success"><%= flash[:success] %>
+    <%= yield %>
+  </div>
+  <%= render :partial => "shared/footer"%>
+</body>
+</html>

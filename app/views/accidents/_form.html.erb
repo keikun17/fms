@@ -1,0 +1,100 @@
+<%= form_for([@fleet, @vehicle, @accident]) do |f| %>
+  <% if @accident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accident.errors.count, "error") %> prohibited this accident from being saved:</h2>
+
+      <ul>
+      <% @accident.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset style="border:1px solid black">
+    <legend style="margin-left:10px">Accident Summary</legend>
+    <table class="form">
+    <tr>
+      <td><%= f.label :accident_date %></td>
+      <td><%= f.date_select :accident_date %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :location %></td>
+      <td><%= f.text_field :location %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description , :rows => 3, :cols => 30%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :reference %></td>
+      <td><%= f.text_field :reference %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :service_center_id %></td>
+      <td><%= f.select :service_center_id, options_for_select(ServiceCenter.all.collect{|x|[x.name, x.id]}) %></td>
+    <tr>
+    <tr>
+      <td><%= f.label :repair_estimate %></td>
+      <td>PHP <%= f.text_field :repair_estimate %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :deductible %></td>
+      <td>PHP <%= f.text_field :deductible %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :remarks %></td>
+      <td><%= f.text_area :remarks, :rows => 3, :cols => 30 %></td>
+    </tr>
+
+    </table>
+  </fieldset>
+  <br>
+  <h3 class="section_header">Third Party (Vehicle)</h3>
+  <br>
+  <table width="100%" class="index" border="1">
+    <tr class="yellow">
+      <th>Service Center</th>
+      <th>Repair Estimate</th>
+      <th>Paid By</th>
+      <th>Remarks</th>
+    </tr>
+    <%= f.fields_for :accident_vehicle_expenses do |ff| %>
+      <%= render :partial => "accident_vehicle_expenses/form", :locals => {:ff => ff}%>
+    <% end %>
+    
+    <%= f.fields_for :accident_vehicle_expenses do |ff| %>
+      <%= render :partial => "accident_vehicle_expenses/form", :locals => {:ff => ff}%>
+    <% end %>
+    
+    <%= f.fields_for :accident_vehicle_expenses do |ff| %>
+      <%= render :partial => "accident_vehicle_expenses/form", :locals => {:ff => ff}%>
+    <% end %>
+    
+    <%= f.fields_for :accident_vehicle_expenses do |ff| %>
+      <%= render :partial => "accident_vehicle_expenses/form", :locals => {:ff => ff}%>
+    <% end %>
+    
+  </table>
+
+  <br>
+  <h3 class="section_header">Third Party (Bodily Injury)</h3>
+  <br>
+
+  <table width="100%" class="index" border="1">
+    <tr class="yellow">
+      <th>Hospital</th>
+      <th>Expenses</th>
+      <th>Paid By</th>
+      <th>Remarks</th>
+    </tr>
+      <%= f.fields_for :accident_assignee_expenses do |ff| %>
+        <%= render :partial => "accident_assignee_expenses/form", :locals => {:ff => ff}%>    
+      <% end %>
+
+      
+  </table>
+
+  
+  <%= f.submit %>
+<% end %>

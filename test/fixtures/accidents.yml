@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  accident_date: 
+  location: MyString
+  description: MyText
+  reference: MyString
+  service_center: 
+  repair_estimate: 1.5
+  deductible: 1.5
+  remarks: MyText
+
+two:
+  accident_date: 
+  location: MyString
+  description: MyText
+  reference: MyString
+  service_center: 
+  repair_estimate: 1.5
+  deductible: 1.5
+  remarks: MyText

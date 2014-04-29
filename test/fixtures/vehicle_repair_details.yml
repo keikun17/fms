@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  vehicle_repair: 
+  item: MyString
+  unit_price: 1.5
+  amount: 1.5
+  repair_type: 
+  warranty: MyString
+
+two:
+  vehicle_repair: 
+  item: MyString
+  unit_price: 1.5
+  amount: 1.5
+  repair_type: 
+  warranty: MyString

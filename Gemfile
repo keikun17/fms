@@ -18,7 +18,6 @@ group :test do
 	gem 'database_cleaner'
 	gem 'factory_girl'
 	gem 'shoulda'
-	gem 'capybara'
 	gem 'cucumber-rails'
 	gem 'launchy'
 	gem 'capybara'

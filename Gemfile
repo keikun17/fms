@@ -1,5 +1,4 @@
-source 'http://rubygems.org'
-
+source 'https://rubygems.org'
 gem 'rails', '3.0.3'
 
 gem 'nokogiri'
@@ -14,19 +13,16 @@ gem "rake"
 
 # Bundle gems for certain environments: 
 group :test do
-	gem 'rspec', '2.0.0.beta.19'
-	gem 'rspec-rails', '2.0.0.beta.19'
+	gem 'rspec'
+	gem 'rspec-rails'
 	gem 'database_cleaner'
 	gem 'factory_girl'
 	gem 'shoulda'
 	gem 'capybara'
-	gem 'cucumber'
 	gem 'cucumber-rails'
 	gem 'launchy'
 	gem 'capybara'
-  gem 'linecache19'
   gem 'spork'
-	gem 'ruby-debug19'
 end
 
 # group :production do

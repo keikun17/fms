@@ -8,8 +8,7 @@ gem 'sqlite3'
 gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
 gem "will_paginate", "~> 3.0.pre2"
 gem "jquery-rails"
-# gem "rake", "~> 0.8.7"
-gem "rake"
+gem "rake", "~> 0.8.7"
 
 # Bundle gems for certain environments: 
 group :test do
